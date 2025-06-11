@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         PDI_HOME = "C:\\Users\\dhafinda.diara\\Desktop\\PENTAHO\\data-integration"
-        PDI_JOB_PATH = "Pentaho_Jobs/job_test.kjb"
-        PDI_TRANS_PATH = "Pentaho_Transformation/Transformation_to_pg.ktr"
+        PDI_JOB_PATH = "Pentaho_Jobs\\job_test.kjb"
+        PDI_TRANS_PATH = "Pentaho_Transformation\\Transformation_to_pg.ktr"
     }
 
     stages {
