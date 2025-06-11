@@ -13,32 +13,4 @@ pipeline {
             }
         }
 
-        stage('Run Pentaho Job') {
-            steps {
-                script {
-                    def kitchenCmd = "\"${env.PDI_HOME}\\kitchen.bat\" /file=\"${env.WORKSPACE}\\${env.PDI_JOB_PATH}\" /level=Basic"
-                    echo "Running Pentaho Job with command: ${kitchenCmd}"
 
-                    def result = bat(script: kitchenCmd, returnStatus: true)
-                    if (result != 0) {
-                        error "Pentaho Job execution failed with exit code: ${result}"
-                    }
-                }
-            }
-        }
-
-        stage('Run Pentaho Transformation') {
-            steps {
-                script {
-                    def panCmd = "\"${env.PDI_HOME}\\pan.bat\" /file=\"${env.WORKSPACE}\\${env.PDI_TRANS_PATH}\" /level=Basic"
-                    echo "Running Pentaho Transformation with command: ${panCmd}"
-
-                    def result = bat(script: panCmd, returnStatus: true)
-                    if (result != 0) {
-                        error "Pentaho Transformation execution failed with exit code: ${result}"
-                    }
-                }
-            }
-        }
-    }
-}
